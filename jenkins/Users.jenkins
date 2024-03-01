@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    parameters {
+                    
+    }
+    
+    environment {
+            
+    }
+
+    stages {
+        stage ('') {
+            when {
+                expression {  }
+            }
+        }    
+    }
+}
