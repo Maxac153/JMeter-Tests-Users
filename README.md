@@ -1,5 +1,5 @@
 # JMeter-Tests-Users
-Тестирование сайта <a href="http://users.bugred.ru/">Users</a> (Нагрузочное тестирование)
+Тестирование сайта <a href="http://users.bugred.ru/">users</a> (Нагрузочное тестирование)
 
 ## Описание
 

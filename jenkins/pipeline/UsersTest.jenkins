@@ -1,0 +1,139 @@
+#!groovy
+@Library('StartTest') _
+
+pipeline {
+    agent any
+    parameters {
+        // Какие тесты запускаем
+        booleanParam(name: 'AUTHORIZATION_ENABLE_TEST', defaultValue: false, description: 'Authorization enable test')
+        booleanParam(name: 'REGISTRATION_ENABLE_TEST', defaultValue: false, description: 'Registration enable test')
+        booleanParam(name: 'UPLOADING_AVATAR_ENABLE_TEST', defaultValue: false, description: 'Uploading avatar enable test')
+        booleanParam(name: 'DELETE_USER_ENABLE_TEST', defaultValue: false, description: 'Delete user enable test')
+
+        // Параметры запуска тестов
+        text(name: 'COMMON_PARAMETERS', description: 'Общие параметры', defaultValue: '' +
+                'RAMP_TIME=10\n' +
+                'HOLD_TIME=1200\n' +
+                'PEAK_RAMP_TIME=140\n' +
+                'PEAK_HOLD_TIME=20\n' +
+                'PEAK_REST_TIME=140\n' +
+                'AFTER_HOLD_PEAK_TIME=2400\n' +
+                'DEBUG_ENABLE=false'
+        )
+
+        text(name: 'AUTHORIZATION_PARAMETERS', description: 'Параметры теста (Authorization Test)', defaultValue: '' +
+                'THROUGHPUT_TIMER=18\n' +
+                'START_THREADS=9\n' +
+                'PEAK_THREADS=66'
+        )
+
+        text(name: 'REGISTRATION_PARAMETERS', description: 'Параметры теста (Registration Test)', defaultValue: '' +
+                'THROUGHPUT_TIMER=18\n' +
+                'START_THREADS=9\n' +
+                'PEAK_THREADS=66'
+        )
+
+        text(name: 'UPLOADING_AVATAR_PARAMETERS', description: 'Параметры теста (Uploading Avatar Test)', defaultValue: '' +
+                'THROUGHPUT_TIMER=18\n' +
+                'START_THREADS=9\n' +
+                'PEAK_THREADS=66'
+        )
+
+        text(name: 'DELETE_USER_PARAMETERS', description: 'Параметры теста (Delete User Test)', defaultValue: '' +
+                'THROUGHPUT_TIMER=18\n' +
+                'START_THREADS=9\n' +
+                'PEAK_THREADS=66'
+        )
+    }
+
+    environment {
+        // Дата запуска теста
+        TIMESTAMP = new Date().format("yyyy-MM-dd_HH-mm-ss")
+
+        // Пути к тестам и логам
+        TEST_PATH = './tests'
+        LOG_PATH = './logs/' + String.valueOf(TIMESTAMP)
+    }
+
+    stages {
+        stage('TEST PREPARATION') {
+            steps {
+                script {
+
+                }
+            }
+        }
+
+        stage('PREGENERATION TEST DATA') {
+            steps {
+                script {
+
+                }
+            }
+        }
+
+        stage('START USERS SITE TESTS') {
+            parallel {
+                stage('START AUTHORIZATION TEST') {
+                    when {
+                        expression { params.AUTHORIZATION_ENABLE_TEST == true }
+                    }
+                    steps {
+                        script {
+                            start_jmeter_test("AuthorizationTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                        }
+                    }
+                }
+
+                stage('START REGISTRATION TEST') {
+                    when {
+                        expression { params.REGISTRATION_ENABLE_TEST == true }
+                    }
+                    steps {
+                        script {
+                            start_jmeter_test("RegistrationTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                        }
+                    }
+                }
+
+                stage('START UPLOADING AVATAR TEST') {
+                    when {
+                        expression { params.UPLOADING_AVATAR_ENABLE_TEST == true }
+                    }
+                    steps {
+                        script {
+                            start_jmeter_test("UploadingAvatarTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                        }
+                    }
+                }
+
+                stage('START DELETE USER TEST') {
+                    when {
+                        expression { params.DELETE_USER_ENABLE_TEST == true }
+                    }
+                    steps {
+                        script {
+                            start_jmeter_test("DeleteUserTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                try {
+                    echo "=========== CREATE LOG ARTIFACT ==========="
+                    archiveArtifacts artifacts: "./logs/**", allowEmptyArchive: true
+                } catch (Exception e) {
+                    echo "ERROR: ${e.toString()}"
+                } finally {
+                    deleteDir(path: './logs')
+                }
+            }
+        }
+    }
+}
