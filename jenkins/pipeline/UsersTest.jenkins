@@ -2,7 +2,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-load 'StartTest.groovy'
+load './jenkins/StartTest.groovy'
 
 pipeline {
     agent any
