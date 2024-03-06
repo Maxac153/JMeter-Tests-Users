@@ -1,39 +1,8 @@
 #!groovy
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-// Создание map с параметрами для запуска
-static def create_map_param(multiLineString) {
-    def variblesMap = [:]
-    multiLineString.split('/n').each {line ->
-        def parts = line.split('=')
-        variblesMap[parts[0]] = parts[1]
-    }
-    return variblesMap
-}
-
-// Создаём строку для передачи параметров в тест
-static def create_string_param(paramMap) {
-    def variablesString = ''
-    paramMap.each { key, value ->
-        variablesString += "-D${key}=${value} "
-    }
-    return variablesString
-}
-
-// PS тесты надо запускать на удалённой машине, а не там где установлен Jenkins (пока удалённой машины нет)
-// Запускать через ssh, а собирать логи через scp
-static def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
-    echo "=========== ${testName} ==========="
-
-    // Общие параметры
-    def commonVariblesMap = create_map_param(commonTestParam)
-    def commonVariablesString = create_string_param(commonVariblesMap)
-
-    // Параметры конкретного теста
-    def variblesMap = create_map_param(testParam)
-    def variablesString = create_string_param(variblesMap)
-
-    sh " JMETER_OPTS=\"-Duser.language=en -Duser.country=US -Duser.variant=UTF-8 ${commonVariablesString}${variablesString}\" jmeter.sh -n –t ${testPath}/${testName}.jmx -l ${logPath}/test_results_(${testName}).jtl"
-}
+def StartTest = load '/jenkins/StartTest.groovy'
 
 pipeline {
     agent any
@@ -83,17 +52,20 @@ pipeline {
     environment {
         // Пути к тестам и логам
         TEST_PATH = './tests'
-        LOG_PATH = './logs/'
+        LOG_PATH = ''
     }
 
     stages {
-//        stage('TEST PREPARATION') {
-//            steps {
-//                script {
-//
-//                }
-//            }
-//        }
+        stage('TEST PREPARATION') {
+            steps {
+                script {
+                    def sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss")
+                    def currentDate = new Date()
+                    def formattedDate = sdf.format(currentDate)
+                    LOG_PATH = "./logs/" + formattedDate
+                }
+            }
+        }
 //
 //        stage('PREGENERATION TEST DATA') {
 //            steps {
@@ -111,7 +83,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            start_jmeter_test("AuthorizationTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                            StartTest.start_jmeter_test("AuthorizationTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
                         }
                     }
                 }
@@ -122,7 +94,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            start_jmeter_test("RegistrationTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                            StartTest.start_jmeter_test("RegistrationTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
                         }
                     }
                 }
@@ -133,7 +105,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            start_jmeter_test("UploadingAvatarTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                            StartTest.start_jmeter_test("UploadingAvatarTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
                         }
                     }
                 }
@@ -144,7 +116,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            start_jmeter_test("DeleteUserTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                            StartTest.start_jmeter_test("DeleteUserTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
                         }
                     }
                 }
