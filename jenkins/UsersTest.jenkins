@@ -29,7 +29,8 @@ def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
     def variblesMap = create_map_param(testParam)
     def variablesString = create_string_param(variblesMap)
 
-    sh " JMETER_OPTS=\"-Duser.language=en -Duser.country=US -Duser.variant=UTF-8 ${commonVariablesString}${variablesString}\" jmeter.sh -n –t ${testPath}/${testName}.jmx -l ${logPath}/test_results_(${testName}).jtl"
+    echo "JMETER_OPTS=\"-Duser.language=en -Duser.country=US -Duser.variant=UTF-8 ${commonVariablesString}${variablesString}\" jmeter.sh -n –t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
+    sh "JMETER_OPTS=\"-Duser.language=en -Duser.country=US -Duser.variant=UTF-8 ${commonVariablesString}${variablesString}\" jmeter.sh -n –t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
 }
 
 
