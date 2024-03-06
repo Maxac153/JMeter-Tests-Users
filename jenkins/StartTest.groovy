@@ -1,5 +1,4 @@
 #!groovy
-package jenkins
 
 class StartTest {
 // Создание map с параметрами для запуска

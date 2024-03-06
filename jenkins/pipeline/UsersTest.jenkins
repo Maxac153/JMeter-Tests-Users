@@ -1,5 +1,5 @@
 #!groovy
-import jenkins.StartTest
+@Library('my-shared-library') _
 
 pipeline {
     agent any
@@ -48,7 +48,7 @@ pipeline {
 
     environment {
         // Загрузка библиотек
-        START_TEST = load './jenkins/StartTest.groovy'
+        START_TEST = new StartTest()
 
         // Пути к тестам и логам
         TEST_PATH = './tests'
@@ -101,7 +101,13 @@ pipeline {
                     }
                     steps {
                         script {
-                            StartTest.start_jmeter_test("RegistrationTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                            env.START_TEST.start_jmeter_test(
+                                    "RegistrationTest",
+                                    env.TEST_PATH,
+                                    env.LOG_PATH,
+                                    env.COMMON_PARAMETERS,
+                                    env.AUTHORIZATION_PARAMETERS
+                            )
                         }
                     }
                 }
@@ -112,7 +118,13 @@ pipeline {
                     }
                     steps {
                         script {
-                            StartTest.start_jmeter_test("UploadingAvatarTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                            StartTest.start_jmeter_test(
+                                    "UploadingAvatarTest",
+                                    env.TEST_PATH,
+                                    env.LOG_PATH,
+                                    env.COMMON_PARAMETERS,
+                                    env.AUTHORIZATION_PARAMETERS
+                            )
                         }
                     }
                 }
@@ -123,7 +135,13 @@ pipeline {
                     }
                     steps {
                         script {
-                            StartTest.start_jmeter_test("DeleteUserTest", env.TEST_PATH, env.LOG_PATH, env.COMMON_PARAMETERS, env.AUTHORIZATION_PARAMETERS)
+                            StartTest.start_jmeter_test(
+                                    "DeleteUserTest",
+                                    env.TEST_PATH,
+                                    env.LOG_PATH,
+                                    env.COMMON_PARAMETERS,
+                                    env.AUTHORIZATION_PARAMETERS
+                            )
                         }
                     }
                 }
