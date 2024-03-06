@@ -1,7 +1,5 @@
 #!groovy
 
-START_TEST = load 'jenkins/StartTest.groovy'
-
 pipeline {
     agent any
     parameters {
@@ -82,6 +80,7 @@ pipeline {
                     }
                     steps {
                         script {
+                            START_TEST = load 'jenkins/StartTest.groovy'
                             START_TEST.pr()
                         }
                     }
