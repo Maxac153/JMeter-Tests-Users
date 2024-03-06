@@ -2,7 +2,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-def StartTest = load 'jenkins/StartTest.groovy'
+load 'StartTest.groovy'
 
 pipeline {
     agent any
@@ -63,6 +63,7 @@ pipeline {
                     def currentDate = new Date()
                     def formattedDate = sdf.format(currentDate)
                     LOG_PATH = "./logs/" + formattedDate
+                    sh 'ls -a'
                 }
             }
         }
