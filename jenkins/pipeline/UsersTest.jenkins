@@ -2,7 +2,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-def startTest = load '../StartTest.groovy'
+def startTest = load 'StartTest.groovy'
 startTest.myFunction()
 
 pipeline {
