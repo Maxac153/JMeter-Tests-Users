@@ -1,4 +1,5 @@
 #!groovy
+import jenkins.StartTest
 
 pipeline {
     agent any
@@ -46,24 +47,24 @@ pipeline {
     }
 
     environment {
+        START_TEST = load 'jenkins/StartTest.groovy'
+
         // Пути к тестам и логам
         TEST_PATH = './tests'
         LOG_PATH = './logs'
     }
 
     stages {
-//        stage('TEST PREPARATION') {
-//            steps {
-//                script {
-//                    def sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss")
-//                    def currentDate = new Date()
-//                    def formattedDate = sdf.format(currentDate)
-//                    LOG_PATH = "./logs/" + formattedDate
-//                    sh 'ls -a'
-//                }
-//            }
-//        }
-//
+        stage('TEST PREPARATION') {
+            steps {
+                script {
+                    def pathToFile = './jenkins/StartTest.groovy'
+                    def otherInstance = load pathToFile
+                    otherInstance.pr()
+                }
+            }
+        }
+
 //        stage('PREGENERATION TEST DATA') {
 //            steps {
 //                script {
@@ -80,8 +81,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            START_TEST = load 'jenkins/StartTest.groovy'
-                            START_TEST.pr()
+                            env.START_TEST.pr()
                         }
                     }
                 }
@@ -92,7 +92,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            START_TEST.start_jmeter_test(
+                            env.START_TEST.start_jmeter_test(
                                     "RegistrationTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
@@ -109,7 +109,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            START_TEST.start_jmeter_test(
+                            env.START_TEST.start_jmeter_test(
                                     "UploadingAvatarTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
@@ -126,7 +126,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            START_TEST.start_jmeter_test(
+                            env.START_TEST.start_jmeter_test(
                                     "DeleteUserTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
