@@ -2,11 +2,6 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-node {
-    def startTest = load '../StartTest.groovy'
-    startTest.myFunction()
-}
-
 pipeline {
     agent any
     parameters {
@@ -56,6 +51,7 @@ pipeline {
         // Пути к тестам и логам
         TEST_PATH = './tests'
         LOG_PATH = ''
+        startTest = load './jenkins/StartTest.groovy'
     }
 
     stages {
