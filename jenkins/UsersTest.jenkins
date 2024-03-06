@@ -22,7 +22,7 @@ class StartTest {
     // PS тесты надо запускать на удалённой машине, а не там где установлен Jenkins (пока удалённой машины нет)
     // Запускать через ssh, а собирать логи через scp
     static def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
-        echo "=========== ${testName} ==========="
+        println "=========== ${testName} ==========="
 
         // Общие параметры
         def commonVariblesMap = create_map_param(commonTestParam)
