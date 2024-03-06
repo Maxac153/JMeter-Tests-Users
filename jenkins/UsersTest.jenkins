@@ -113,7 +113,7 @@ pipeline {
                     steps {
                         script {
                             StartTest.start_jmeter_test(
-                                    "RegistrationTest",
+                                    "AuthorizationTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
                                     env.COMMON_PARAMETERS,
@@ -134,7 +134,7 @@ pipeline {
                                     env.TEST_PATH,
                                     env.LOG_PATH,
                                     env.COMMON_PARAMETERS,
-                                    env.AUTHORIZATION_PARAMETERS
+                                    env.REGISTRATION_PARAMETERS
                             )
                         }
                     }
@@ -151,7 +151,7 @@ pipeline {
                                     env.TEST_PATH,
                                     env.LOG_PATH,
                                     env.COMMON_PARAMETERS,
-                                    env.AUTHORIZATION_PARAMETERS
+                                    env.UPLOADING_AVATAR_PARAMETERS
                             )
                         }
                     }
@@ -168,7 +168,7 @@ pipeline {
                                     env.TEST_PATH,
                                     env.LOG_PATH,
                                     env.COMMON_PARAMETERS,
-                                    env.AUTHORIZATION_PARAMETERS
+                                    env.DELETE_USER_PARAMETERS
                             )
                         }
                     }
