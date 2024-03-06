@@ -46,8 +46,6 @@ pipeline {
     }
 
     environment {
-        START_TEST = load 'jenkins/StartTest.groovy'
-
         // Пути к тестам и логам
         TEST_PATH = './tests'
         LOG_PATH = './logs'
@@ -57,7 +55,7 @@ pipeline {
         stage('TEST PREPARATION') {
             steps {
                 script {
-                    def pathToFile = './jenkins/StartTest.groovy'
+                    def pathToFile = 'StartTest.groovy'
                     def otherInstance = load pathToFile
                     otherInstance.pr()
                 }
