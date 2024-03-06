@@ -1,5 +1,7 @@
 #!groovy
 
+START_TEST = load 'jenkins/StartTest.groovy'
+
 pipeline {
     agent any
     parameters {
@@ -46,8 +48,6 @@ pipeline {
     }
 
     environment {
-        START_TEST = load 'jenkins/StartTest.groovy'
-
         // Пути к тестам и логам
         TEST_PATH = './tests'
         LOG_PATH = './logs'
@@ -82,7 +82,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            env.START_TEST.pr()
+                            START_TEST.pr()
                         }
                     }
                 }
@@ -93,7 +93,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            env.START_TEST.start_jmeter_test(
+                            START_TEST.start_jmeter_test(
                                     "RegistrationTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
@@ -110,7 +110,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            env.START_TEST.start_jmeter_test(
+                            START_TEST.start_jmeter_test(
                                     "UploadingAvatarTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
@@ -127,7 +127,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            env.START_TEST.start_jmeter_test(
+                            START_TEST.start_jmeter_test(
                                     "DeleteUserTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
