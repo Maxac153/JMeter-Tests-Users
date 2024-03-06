@@ -46,7 +46,7 @@ pipeline {
     }
 
     environment {
-        START_TEST = load 'StartTest.groovy'
+        START_TEST = load 'jenkins/StartTest.groovy'
 
         // Пути к тестам и логам
         TEST_PATH = './tests'
