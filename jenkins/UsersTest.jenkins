@@ -2,10 +2,9 @@
 class StartTest {
     // Создание map с параметрами для запуска
     private def create_map_param(multiLineString) {
-        def variblesMap = [:]
-        multiLineString.split('\n').each { line ->
-            def parts = line.split('=')
-            variblesMap[parts[0]] = parts[1]
+        def variblesMap = multiLineString.split('\n').collectEntries {
+            def (key, value) = it.split('=')
+            [(key): value]
         }
         return variblesMap
     }
