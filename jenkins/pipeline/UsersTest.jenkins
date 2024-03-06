@@ -1,5 +1,4 @@
 #!groovy
-@Library('my-shared-library') _
 
 pipeline {
     agent any
@@ -48,7 +47,7 @@ pipeline {
 
     environment {
         // Загрузка библиотек
-        START_TEST = new StartTest()
+        START_TEST = new jenkins.StartTest()
 
         // Пути к тестам и логам
         TEST_PATH = './tests'
