@@ -1,4 +1,5 @@
 #!groovy
+import java.util.Date;
 
 // Создание map с параметрами для запуска
 static def create_map_param(multiLineString) {
@@ -81,23 +82,30 @@ pipeline {
     }
 
     environment {
+        // Дата запуска теста
+        TIMESTAMP = new Date().format("yyyy-MM-dd_HH-mm-ss")
+
         // Пути к тестам и логам
         TEST_PATH = './tests'
-        LOG_PATH = './logs/' + new Date().format("yyyy-MM-dd_HH-mm-ss")
+        LOG_PATH = './logs/' + String.valueOf(TIMESTAMP)
     }
 
     stages {
-        stage('TEST PREPARATION') {
-            steps {
-
-            }
-        }
-
-        stage('PREGENERATION TEST DATA') {
-            steps {
-
-            }
-        }
+//        stage('TEST PREPARATION') {
+//            steps {
+//                script {
+//
+//                }
+//            }
+//        }
+//
+//        stage('PREGENERATION TEST DATA') {
+//            steps {
+//                script {
+//
+//                }
+//            }
+//        }
 
         stage('START USERS SITE TESTS') {
             parallel {
