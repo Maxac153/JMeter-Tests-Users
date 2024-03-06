@@ -2,8 +2,10 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-def startTest = load 'StartTest.groovy'
-startTest.myFunction()
+node {
+    def startTest = load '/jenkins/StartTest.groovy'
+    startTest.myFunction()
+}
 
 pipeline {
     agent any
