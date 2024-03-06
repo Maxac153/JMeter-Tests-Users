@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 node {
-    def startTest = load '/jenkins/StartTest.groovy'
+    def startTest = load '../StartTest.groovy'
     startTest.myFunction()
 }
 
