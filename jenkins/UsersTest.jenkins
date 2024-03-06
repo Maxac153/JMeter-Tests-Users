@@ -1,7 +1,4 @@
 #!groovy
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 
 // Создание map с параметрами для запуска
 static def create_map_param(multiLineString) {
@@ -84,13 +81,9 @@ pipeline {
     }
 
     environment {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-        Date currentDate = new Date();
-        String formattedDate = sdf.format(currentDate);
-
         // Пути к тестам и логам
         TEST_PATH = './tests'
-        LOG_PATH = './logs/' + formattedDate
+        LOG_PATH = './logs/'
     }
 
     stages {
