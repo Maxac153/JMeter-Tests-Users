@@ -1,5 +1,4 @@
 #!groovy
-import jenkins.StartTest
 
 pipeline {
     agent any
