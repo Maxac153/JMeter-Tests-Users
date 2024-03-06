@@ -1,7 +1,11 @@
 #!groovy
 
 class StartTest {
-// Создание map с параметрами для запуска
+    static def pr() {
+        echo "Hello"
+    }
+
+    // Создание map с параметрами для запуска
     static def create_map_param(multiLineString) {
         def variblesMap = [:]
         multiLineString.split('/n').each { line ->
@@ -11,7 +15,7 @@ class StartTest {
         return variblesMap
     }
 
-// Создаём строку для передачи параметров в тест
+    // Создаём строку для передачи параметров в тест
     static def create_string_param(paramMap) {
         def variablesString = ''
         paramMap.each { key, value ->
@@ -20,8 +24,8 @@ class StartTest {
         return variablesString
     }
 
-// PS тесты надо запускать на удалённой машине, а не там где установлен Jenkins (пока удалённой машины нет)
-// Запускать через ssh, а собирать логи через scp
+    // PS тесты надо запускать на удалённой машине, а не там где установлен Jenkins (пока удалённой машины нет)
+    // Запускать через ssh, а собирать логи через scp
     static def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
         echo "=========== ${testName} ==========="
 

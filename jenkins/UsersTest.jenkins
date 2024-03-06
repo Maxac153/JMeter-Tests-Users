@@ -82,13 +82,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            env.START_TEST.start_jmeter_test(
-                                    "AuthorizationTest",
-                                    env.TEST_PATH,
-                                    env.LOG_PATH,
-                                    env.COMMON_PARAMETERS,
-                                    env.AUTHORIZATION_PARAMETERS
-                            )
+                            env.START_TEST.pr()
                         }
                     }
                 }
