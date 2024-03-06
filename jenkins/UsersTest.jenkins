@@ -81,28 +81,21 @@ pipeline {
     }
 
     environment {
-        // Дата запуска теста
-        TIMESTAMP = new Date().format("yyyy-MM-dd_HH-mm-ss")
-
         // Пути к тестам и логам
         TEST_PATH = './tests'
-        LOG_PATH = './logs/' + String.valueOf(TIMESTAMP)
+        LOG_PATH = './logs/' + new Date().format("yyyy-MM-dd_HH-mm-ss")
     }
 
     stages {
         stage('TEST PREPARATION') {
             steps {
-                script {
 
-                }
             }
         }
 
         stage('PREGENERATION TEST DATA') {
             steps {
-                script {
 
-                }
             }
         }
 
