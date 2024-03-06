@@ -1,5 +1,4 @@
 #!groovy
-package jenkins
 
 class StartTest {
 // Создание map с параметрами для запуска
@@ -37,5 +36,3 @@ class StartTest {
         sh " JMETER_OPTS=\"-Duser.language=en -Duser.country=US -Duser.variant=UTF-8 ${commonVariablesString}${variablesString}\" jmeter.sh -n –t ${testPath}/${testName}.jmx -l ${logPath}/test_results_(${testName}).jtl"
     }
 }
-
-return this
