@@ -1,4 +1,5 @@
 #!groovy
+import jenkins.StartTest
 
 pipeline {
     agent any
@@ -55,8 +56,7 @@ pipeline {
         stage('TEST PREPARATION') {
             steps {
                 script {
-                    def pathToFile = 'StartTest.groovy'
-                    def otherInstance = load pathToFile
+                    def otherInstance = new StartTest()
                     otherInstance.pr()
                 }
             }

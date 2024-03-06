@@ -1,4 +1,5 @@
 #!groovy
+package jenkins
 
 class StartTest {
     static def pr() {
