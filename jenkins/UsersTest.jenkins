@@ -86,21 +86,13 @@ pipeline {
     }
 
     stages {
-//        stage('TEST PREPARATION') {
-//            steps {
-//                script {
-//
-//                }
-//            }
-//        }
-//
-//        stage('PREGENERATION TEST DATA') {
-//            steps {
-//                script {
-//
-//                }
-//            }
-//        }
+        stage('TEST PREPARATION') {
+            steps {
+                script {
+                    sh "mkdir -p logs"
+                }
+            }
+        }
 
         stage('START USERS SITE TESTS') {
             parallel {
