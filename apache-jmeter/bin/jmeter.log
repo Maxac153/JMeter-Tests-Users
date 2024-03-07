@@ -1,28 +1,49 @@
-2024-03-07 15:28:00,292 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
-2024-03-07 15:28:00,304 INFO o.a.j.JMeter: Loading user properties from: user.properties
-2024-03-07 15:28:00,305 INFO o.a.j.JMeter: Loading system properties from: system.properties
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: Version 5.6.3
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: java.version=11.0.22
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: os.name=Linux
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: os.arch=amd64
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: os.version=5.15.0-97-generic
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: file.encoding=UTF-8
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: java.awt.headless=null
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: Max memory     =1073741824
-2024-03-07 15:28:00,307 INFO o.a.j.JMeter: Available Processors =16
-2024-03-07 15:28:00,315 INFO o.a.j.JMeter: Default Locale=English (EN)
-2024-03-07 15:28:00,315 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
-2024-03-07 15:28:00,315 INFO o.a.j.JMeter: JMeterHome=/home/turgor/Документы/JMeter-Tests-Users/apache-jmeter-5.6.3
-2024-03-07 15:28:00,315 INFO o.a.j.JMeter: user.dir  =/home/turgor/Документы/JMeter-Tests-Users/apache-jmeter-5.6.3/bin
-2024-03-07 15:28:00,315 INFO o.a.j.JMeter: PWD       =/home/turgor/Документы/JMeter-Tests-Users/apache-jmeter-5.6.3/bin
-2024-03-07 15:28:00,315 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: turgor-Xiaomi-Book-14 FullName: turgor-Xiaomi-Book-14
-2024-03-07 15:28:00,322 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
-2024-03-07 15:28:00,590 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
-2024-03-07 15:28:01,246 INFO o.a.j.r.ClassFinder: Will scan jar /home/turgor/Документы/JMeter-Tests-Users/apache-jmeter-5.6.3/lib/ext/jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.action.Command], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
-2024-03-07 15:28:01,255 INFO o.a.j.r.ClassFinder: Will scan jar /home/turgor/Документы/JMeter-Tests-Users/apache-jmeter-5.6.3/lib/ext/jmeter-plugins-manager-1.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.action.Command], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
-2024-03-07 15:28:01,355 INFO o.a.j.r.ClassFinder: Will scan jar /home/turgor/Документы/JMeter-Tests-Users/apache-jmeter-5.6.3/lib/ext/jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.plugin.MenuCreator], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
-2024-03-07 15:28:01,356 INFO o.a.j.r.ClassFinder: Will scan jar /home/turgor/Документы/JMeter-Tests-Users/apache-jmeter-5.6.3/lib/ext/jmeter-plugins-manager-1.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.plugin.MenuCreator], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
-2024-03-07 15:28:01,392 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=linux-475a82d415879c5f71a3b9a6fd4eb5c9-gui
-2024-03-07 15:28:03,345 INFO o.j.r.PluginManager: Plugins Status: [jpgc-casutg=2.10, jpgc-plugins-manager=1.10, jmeter-core=5.6.3, jmeter-ftp=5.6.3, jmeter-http=5.6.3, jmeter-jdbc=5.6.3, jmeter-jms=5.6.3, jmeter-junit=5.6.3, jmeter-java=5.6.3, jmeter-ldap=5.6.3, jmeter-mail=5.6.3, jmeter-mongodb=5.6.3, jmeter-native=5.6.3, jmeter-tcp=5.6.3, jmeter-components=5.6.3]
+2024-03-07 21:16:35,375 INFO o.a.j.u.JMeterUtils: Setting Locale to ru_RU
+2024-03-07 21:16:35,388 ERROR o.a.j.u.JMeterUtils: Could not find resources for 'ru_RU'
+2024-03-07 21:16:35,389 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2024-03-07 21:16:35,389 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: Version 5.6.3
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: java.version=11.0.22
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: os.name=Linux
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: os.arch=amd64
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: os.version=5.15.0-97-generic
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: file.encoding=UTF-8
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: java.awt.headless=null
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: Max memory     =4120903680
+2024-03-07 21:16:35,393 INFO o.a.j.JMeter: Available Processors =16
+2024-03-07 21:16:35,398 INFO o.a.j.JMeter: Default Locale=русский (Россия)
+2024-03-07 21:16:35,398 INFO o.a.j.JMeter: JMeter  Locale=русский (Россия)
+2024-03-07 21:16:35,398 INFO o.a.j.JMeter: JMeterHome=/home/turgor/Документы/JMeter-Tests-Users/apache-jmeter
+2024-03-07 21:16:35,398 INFO o.a.j.JMeter: user.dir  =/home/turgor/Документы/JMeter-Tests-Users/apache-jmeter/bin
+2024-03-07 21:16:35,398 INFO o.a.j.JMeter: PWD       =/home/turgor/Документы/JMeter-Tests-Users/apache-jmeter/bin
+2024-03-07 21:16:35,398 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: turgor-Xiaomi-Book-14 FullName: turgor-Xiaomi-Book-14
+2024-03-07 21:16:35,406 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2024-03-07 21:16:35,640 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2024-03-07 21:16:36,282 INFO o.a.j.r.ClassFinder: Will scan jar /home/turgor/Документы/JMeter-Tests-Users/apache-jmeter/lib/ext/jmeter-plugins-manager-1.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.action.Command], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-03-07 21:16:36,356 INFO o.a.j.r.ClassFinder: Will scan jar /home/turgor/Документы/JMeter-Tests-Users/apache-jmeter/lib/ext/jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.action.Command], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-03-07 21:16:36,412 INFO o.a.j.r.ClassFinder: Will scan jar /home/turgor/Документы/JMeter-Tests-Users/apache-jmeter/lib/ext/jmeter-plugins-manager-1.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.plugin.MenuCreator], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-03-07 21:16:36,414 INFO o.a.j.r.ClassFinder: Will scan jar /home/turgor/Документы/JMeter-Tests-Users/apache-jmeter/lib/ext/jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.plugin.MenuCreator], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-03-07 21:16:36,458 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=linux-b888d4a91b0c9f810b21ca418052a06c-gui
+2024-03-07 21:16:41,068 INFO o.j.r.PluginManager: Plugins Status: [jpgc-casutg=2.10, jpgc-plugins-manager=1.10, jmeter-core=5.6.3, jmeter-ftp=5.6.3, jmeter-http=5.6.3, jmeter-jdbc=5.6.3, jmeter-jms=5.6.3, jmeter-junit=5.6.3, jmeter-java=5.6.3, jmeter-ldap=5.6.3, jmeter-mail=5.6.3, jmeter-mongodb=5.6.3, jmeter-native=5.6.3, jmeter-tcp=5.6.3, jmeter-components=5.6.3]
+2024-03-07 21:16:42,074 WARN o.j.r.h.StatsReporter: Failed to send repo stats
+org.apache.http.conn.ConnectTimeoutException: Connect to jmeter-plugins.org:443 timed out
+	at org.apache.http.conn.ssl.SSLSocketFactory.connectSocket(SSLSocketFactory.java:545) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.conn.ssl.SSLSocketFactory.connectSocket(SSLSocketFactory.java:415) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:605) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:440) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.jmeterplugins.repository.JARSourceHTTP.execute(JARSourceHTTP.java:499) ~[jmeter-plugins-manager-1.10.jar:?]
+	at org.jmeterplugins.repository.JARSourceHTTP.execute(JARSourceHTTP.java:494) ~[jmeter-plugins-manager-1.10.jar:?]
+	at org.jmeterplugins.repository.JARSourceHTTP.reportStats(JARSourceHTTP.java:451) ~[jmeter-plugins-manager-1.10.jar:?]
+	at org.jmeterplugins.repository.http.StatsReporter.run(StatsReporter.java:24) [jmeter-plugins-manager-1.10.jar:?]
+2024-03-07 21:16:48,397 INFO o.a.j.g.JMeterUIDefaults: Applying font scale factor: 1.1
+2024-03-07 21:16:50,712 INFO o.a.j.g.JMeterUIDefaults: Applying font scale factor: 1.21
+2024-03-07 21:16:52,022 INFO o.a.j.g.JMeterUIDefaults: Applying font scale factor: 1.3310001
+2024-03-07 21:17:56,207 INFO o.a.j.g.JMeterUIDefaults: Applying font scale factor: 1.3310001
+2024-03-07 21:18:02,324 INFO o.a.j.g.JMeterUIDefaults: Applying font scale factor: 1.3310001
