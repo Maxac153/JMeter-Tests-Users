@@ -1,5 +1,7 @@
 #!groovy
 
+def currentDate = new Date().format('yyyy-MM-dd_HH-mm-ss')
+
 // Создание map с параметрами для запуска
 static def create_map_param(multiLineString) {
     def variblesMap = multiLineString.split('\n').collectEntries {
@@ -32,7 +34,6 @@ def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
     echo "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
     sh "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
 }
-
 
 pipeline {
     agent any
@@ -82,14 +83,14 @@ pipeline {
     environment {
         // Пути к тестам и логам
         TEST_PATH = './tests'
-        LOG_PATH = './logs/' + new Date().format('yyyy-MM-dd_HH-mm-ss')
+        LOG_PATH = "./logs/${currentDate}"
     }
 
     stages {
         stage('TEST PREPARATION') {
             steps {
                 script {
-                    sh "mkdir -p ./logs/${env.LOG_PATH}"
+                    sh "mkdir -p ${env.LOG_PATH}"
                 }
             }
         }
