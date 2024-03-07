@@ -82,14 +82,13 @@ pipeline {
     environment {
         // Пути к тестам и логам
         TEST_PATH = './tests'
-        LOG_PATH = './logs'
+        LOG_PATH = './logs/' + new Date().format('yyyy-MM-dd_HH-mm-ss')
     }
 
     stages {
         stage('TEST PREPARATION') {
             steps {
                 script {
-                    env.LOG_PATH += new Date().format('yyyy-MM-dd_HH-mm-ss')
                     sh "mkdir -p ./logs/${env.LOG_PATH}"
                 }
             }
@@ -178,7 +177,7 @@ pipeline {
             script {
                 try {
                     echo "=========== CREATE LOG ARTIFACT ==========="
-                    archiveArtifacts artifacts: "./logs/**", allowEmptyArchive: true
+                    archiveArtifacts artifacts: "logs/**", allowEmptyArchive: true
                 } catch (Exception e) {
                     echo "ERROR: ${e.toString()}"
                 } finally {
