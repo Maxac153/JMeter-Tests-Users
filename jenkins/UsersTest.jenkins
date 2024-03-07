@@ -89,7 +89,8 @@ pipeline {
         stage('TEST PREPARATION') {
             steps {
                 script {
-                    sh "mkdir -p ./logs"
+                    def currentDate = new Date().format('yyyy-MM-dd_HH-mm-ss')
+                    sh "mkdir -p ./logs/${currentDate}"
                 }
             }
         }
