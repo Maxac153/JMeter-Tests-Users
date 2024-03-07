@@ -180,8 +180,6 @@ pipeline {
                     archiveArtifacts artifacts: "./logs/**", allowEmptyArchive: true
                 } catch (Exception e) {
                     echo "ERROR: ${e.toString()}"
-                } finally {
-                    deleteDir(path: './logs')
                 }
             }
         }
