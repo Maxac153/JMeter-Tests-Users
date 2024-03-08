@@ -32,7 +32,6 @@ def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
     def variblesMap = create_map_param(testParam)
     def variablesString = create_string_param(variblesMap)
 
-    echo "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
     sh "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
 }
 
@@ -88,7 +87,7 @@ pipeline {
     }
 
     stages {
-        stage('TEST PREPARATION') {
+        stage('TEST PREPARATION DATA') {
             steps {
                 script {
                     sh "mkdir -p ${env.LOG_PATH}"
