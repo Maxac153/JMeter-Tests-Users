@@ -16,7 +16,7 @@ static def create_map_param(multiLineString) {
 static def create_string_param(paramMap) {
     def variablesString = ''
     paramMap.each { key, value ->
-        variablesString += "-D${key}=${value} "
+        variablesString += "-J ${key}=${value} "
     }
     return variablesString
 }
@@ -32,7 +32,7 @@ def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
     def variblesMap = create_map_param(testParam)
     def variablesString = create_string_param(variblesMap)
 
-    sh "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
+    sh "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx ${commonVariablesString} ${variablesString} -l ${logPath}/test_results_${testName}.jtl"
 }
 
 pipeline {
