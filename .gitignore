@@ -2,3 +2,5 @@
 /.idea/
 /logs/
 /log/
+/apache-jmeter/backups/AuthorizationTest-000001.jmx
+/jmeter.log

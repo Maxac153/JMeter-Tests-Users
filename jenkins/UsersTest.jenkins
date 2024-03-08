@@ -1,5 +1,6 @@
 #!groovy
 
+// Дата запуска тестов
 def currentDate = new Date().format('yyyy-MM-dd_HH-mm-ss')
 
 // Создание map с параметрами для запуска
@@ -31,8 +32,8 @@ def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
     def variblesMap = create_map_param(testParam)
     def variablesString = create_string_param(variblesMap)
 
-    echo "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
-    sh "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
+    echo "${commonVariablesString} ${variablesString} ./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
+    sh "${commonVariablesString} ${variablesString} ./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx -l ${logPath}/test_results_${testName}.jtl"
 }
 
 pipeline {
