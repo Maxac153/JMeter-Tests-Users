@@ -93,6 +93,7 @@ pipeline {
                     sh """
                         mkdir -p ${env.LOG_PATH}
                         python3 pre_generate_users.py
+                        cat ./test_data/users_data.csv
                     """
                 }
             }
