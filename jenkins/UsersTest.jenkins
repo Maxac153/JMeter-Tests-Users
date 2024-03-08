@@ -2,6 +2,7 @@
 
 // Дата запуска тестов
 def currentDate = new Date().format('yyyy-MM-dd_HH-mm-ss')
+def testsName = []
 
 // Создание map с параметрами для запуска
 static def create_map_param(multiLineString) {
@@ -25,12 +26,12 @@ static def create_string_param(paramMap) {
 // Запускать через ssh, а собирать логи через scp
 def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
     // Общие параметры
-    def commonVariblesMap = create_map_param(commonTestParam)
-    def commonVariablesString = create_string_param(commonVariblesMap)
+    def commonVariablesMap = create_map_param(commonTestParam)
+    def commonVariablesString = create_string_param(commonVariablesMap)
 
     // Параметры конкретного теста
-    def variblesMap = create_map_param(testParam)
-    def variablesString = create_string_param(variblesMap)
+    def variablesMap = create_map_param(testParam)
+    def variablesString = create_string_param(variablesMap)
 
     sh "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx ${commonVariablesString} ${variablesString} -l ${logPath}/test_results_${testName}.jtl"
 }
@@ -51,32 +52,31 @@ pipeline {
                 'PEAK_RAMP_TIME=140\n' +
                 'PEAK_HOLD_TIME=20\n' +
                 'PEAK_REST_TIME=140\n' +
-                'AFTER_HOLD_PEAK_TIME=2400\n' +
-                'DEBUG_ENABLE=false'
+                'AFTER_HOLD_PEAK_TIME=2400'
         )
 
         text(name: 'AUTHORIZATION_PARAMETERS', description: 'Параметры теста (Authorization Test)', defaultValue: '' +
-                'THROUGHPUT_TIMER=18\n' +
-                'START_THREADS=9\n' +
-                'PEAK_THREADS=66'
+                'THROUGHPUT_TIMER=1\n' +
+                'START_THREADS=1\n' +
+                'PEAK_THREADS=2'
         )
 
         text(name: 'REGISTRATION_PARAMETERS', description: 'Параметры теста (Registration Test)', defaultValue: '' +
-                'THROUGHPUT_TIMER=18\n' +
-                'START_THREADS=9\n' +
-                'PEAK_THREADS=66'
+                'THROUGHPUT_TIMER=1\n' +
+                'START_THREADS=1\n' +
+                'PEAK_THREADS=2'
         )
 
         text(name: 'UPLOADING_AVATAR_PARAMETERS', description: 'Параметры теста (Uploading Avatar Test)', defaultValue: '' +
-                'THROUGHPUT_TIMER=18\n' +
-                'START_THREADS=9\n' +
-                'PEAK_THREADS=66'
+                'THROUGHPUT_TIMER=1\n' +
+                'START_THREADS=1\n' +
+                'PEAK_THREADS=2'
         )
 
         text(name: 'DELETE_USER_PARAMETERS', description: 'Параметры теста (Delete User Test)', defaultValue: '' +
-                'THROUGHPUT_TIMER=18\n' +
-                'START_THREADS=9\n' +
-                'PEAK_THREADS=66'
+                'THROUGHPUT_TIMER=1\n' +
+                'START_THREADS=1\n' +
+                'PEAK_THREADS=2'
         )
     }
 
@@ -104,6 +104,7 @@ pipeline {
                     steps {
                         script {
                             echo "=========== AuthorizationTest ==========="
+                            testsName.add("AuthorizationTest")
                             start_jmeter_test(
                                     "AuthorizationTest",
                                     env.TEST_PATH,
@@ -122,6 +123,7 @@ pipeline {
                     steps {
                         script {
                             echo "=========== RegistrationTest ==========="
+                            testsName.add("RegistrationTest")
                             start_jmeter_test(
                                     "RegistrationTest",
                                     env.TEST_PATH,
@@ -140,6 +142,7 @@ pipeline {
                     steps {
                         script {
                             echo "=========== UploadingAvatarTest ==========="
+                            testsName.add("UploadingAvatarTest")
                             start_jmeter_test(
                                     "UploadingAvatarTest",
                                     env.TEST_PATH,
@@ -158,6 +161,7 @@ pipeline {
                     steps {
                         script {
                             echo "=========== DeleteUserTest ==========="
+                            testsName.add("DeleteUserTest")
                             start_jmeter_test(
                                     "DeleteUserTest",
                                     env.TEST_PATH,
@@ -179,6 +183,12 @@ pipeline {
                 try {
                     echo "=========== CREATE LOG ARTIFACT ==========="
                     archiveArtifacts artifacts: "logs/**", allowEmptyArchive: true
+
+                    echo "=========== KILL JAVA PROCESSES ==========="
+                    testsName.each { testName ->
+                        sh "kill -9 \$(pgrep -f ${testName})"
+                    }
+
                 } catch (Exception e) {
                     echo "ERROR: ${e.toString()}"
                 } finally {
