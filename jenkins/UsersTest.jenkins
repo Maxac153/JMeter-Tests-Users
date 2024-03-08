@@ -92,10 +92,6 @@ pipeline {
                 script {
                     sh """
                         mkdir -p ${env.LOG_PATH}
-                        sudo apt-get install python3
-                        sudo pip install Faker
-                        python3 pre_generate_users.py
-                        cat ./test_data/users_data.csv
                     """
                 }
             }
