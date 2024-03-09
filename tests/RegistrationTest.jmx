@@ -65,7 +65,7 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_________TESTS__________" enabled="false"/>
       <hashTree/>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="1719381960">
             <stringProp name="49">1</stringProp>
@@ -96,7 +96,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Registration">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Registration" enabled="true">
           <collectionProp name="ModuleController.node_path">
             <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="184585656">Test Plan Site Users</stringProp>
@@ -104,13 +104,18 @@
           </collectionProp>
         </ModuleController>
         <hashTree>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
-            <stringProp name="ConstantTimer.delay">1000</stringProp>
-          </ConstantTimer>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <intProp name="calcMode">1</intProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+          </ConstantThroughputTimer>
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Debug Thread Group" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Debug Thread Group" enabled="true">
         <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -130,7 +135,7 @@
         </ModuleController>
         <hashTree/>
       </hashTree>
-      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group">
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
         <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -141,7 +146,7 @@
         </elementProp>
       </PostThreadGroup>
       <hashTree>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Registration">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Registration" enabled="true">
           <collectionProp name="ModuleController.node_path">
             <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="184585656">Test Plan Site Users</stringProp>
@@ -154,7 +159,7 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="TF#1 Registration" enabled="false"/>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS (users_data.csv)" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
@@ -228,7 +233,7 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Registration" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Users Registration" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
@@ -321,7 +326,7 @@
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Add Data To STS" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Add Data To STS (users_data.csv)" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
@@ -373,7 +378,7 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="TF#1 Delete Users" enabled="false"/>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Status STS">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Status STS" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
@@ -403,11 +408,11 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="TC Delete Users">
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="TC Users Delete">
           <stringProp name="LoopController.loops">${users_count}</stringProp>
         </LoopController>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -459,7 +464,7 @@
               <hashTree/>
             </hashTree>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Delete user" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Users Delete user">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -675,7 +680,7 @@
         <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
       </BackendListener>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -712,7 +717,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
