@@ -1,4 +1,4 @@
-import os
+import requests
 
 from faker import Faker
 
@@ -16,11 +16,9 @@ class RegisterUser:
 
 if __name__ == '__main__':
     print('Start pre gen users')
-    os.remove('./test_data/users_data.csv')
 
     # Запись данных в CSV файл
-    with open('./test_data/users_data.csv', 'a') as file:
-        for _ in range(0, 50000):
-            file.write(RegisterUser.random_user())
+    for _ in range(0, 1000):
+        requests.post(f'http://17.150.0.103:9191/sts/ADD?FILENAME=users_data.csv&LINE={RegisterUser.random_user()}&ADD_MODE=LAST&UNIQUE=FALSE')
 
     print('End pre gen users')
