@@ -47,12 +47,18 @@ pipeline {
 
         // Параметры запуска тестов
         text(name: 'COMMON_PARAMETERS', description: 'Общие параметры', defaultValue: '' +
-                'RAMP_TIME=10\n' +
-                'HOLD_TIME=1200\n' +
-                'PEAK_RAMP_TIME=140\n' +
-                'PEAK_HOLD_TIME=20\n' +
-                'PEAK_REST_TIME=140\n' +
-                'AFTER_HOLD_PEAK_TIME=2400'
+                'BEFORE_PEEK_INITIAL_DELAY=0\n' +
+                'PEEK_INITIAL_DELAY=600\n' +
+                'AFTER_PEEK_INITIAL_DELAY=900\n' +
+                'BEFORE_PEEK_STARTUP_TIME=0\n' +
+                'PEEK_STARTUP_TIME=5\n' +
+                'AFTER_PEEK_STARTUP_TIME=0\n' +
+                'BEFORE_PEEK_HOLD_LOAD=600\n' +
+                'PEEK_HOLD_LOAD=295\n' +
+                'AFTER_PEEK_HOLD_LOAD=600\n' +
+                'BEFORE_PEEK_SHUTDOWN_TIME=5\n' +
+                'PEEK_SHUTDOWN_TIME=0\n' +
+                'AFTER_PEEK_SHUTDOWN_TIME=0'
         )
 
         text(name: 'AUTHORIZATION_PARAMETERS', description: 'Параметры теста (Authorization Test)', defaultValue: '' +
