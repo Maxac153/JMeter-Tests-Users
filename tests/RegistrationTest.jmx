@@ -10,7 +10,7 @@
     <hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_________CONFIG_________" enabled="false"/>
       <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="Referer" elementType="Header">
             <stringProp name="Header.name">Referer</stringProp>
@@ -95,7 +95,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Registration">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Registration" enabled="true">
           <collectionProp name="ModuleController.node_path">
             <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="184585656">Test Plan Site Users</stringProp>
@@ -135,22 +135,13 @@
         </elementProp>
       </PostThreadGroup>
       <hashTree>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Delete Users" enabled="true">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Delete Users">
           <collectionProp name="ModuleController.node_path">
             <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="184585656">Test Plan Site Users</stringProp>
             <stringProp name="-30027501">TF#1 Delete Users</stringProp>
           </collectionProp>
         </ModuleController>
-        <hashTree/>
-        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
-          <doubleProp>
-            <name>throughput</name>
-            <value>1.33</value>
-            <savedValue>0.0</savedValue>
-          </doubleProp>
-        </ConstantThroughputTimer>
         <hashTree/>
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_______SCENARIOS_______" enabled="false"/>
