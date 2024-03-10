@@ -91,6 +91,7 @@ pipeline {
                 script {
                     sh """
                         mkdir -p ${env.LOG_PATH}
+                        python3 pre_generate_users.py
                     """
                 }
             }
