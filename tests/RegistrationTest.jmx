@@ -65,26 +65,26 @@
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="2107029159">
-            <stringProp name="-1137966584">${START_THREADS}</stringProp>
-            <stringProp name="-1926145616">${BEFORE_PEEK_INITIAL_DELAY}</stringProp>
-            <stringProp name="-502702381">${BEFORE_PEEK_STARTUP_TIME}</stringProp>
-            <stringProp name="570744594">${BEFORE_PEEK_HOLD_LOAD}</stringProp>
-            <stringProp name="-1649167134">${BEFORE_PEEK_SHUTDOWN_TIME}</stringProp>
+          <collectionProp name="1719381960">
+            <stringProp name="49">1</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="53430">600</stringProp>
+            <stringProp name="53">5</stringProp>
           </collectionProp>
-          <collectionProp name="-1316146865">
-            <stringProp name="-1347103235">${PEAK_THREADS}</stringProp>
-            <stringProp name="-600326622">${PEEK_INITIAL_DELAY}</stringProp>
-            <stringProp name="-1152670687">${PEEK_STARTUP_TIME}</stringProp>
-            <stringProp name="2042842244">${PEEK_HOLD_LOAD}</stringProp>
-            <stringProp name="-323348140">${PEEK_SHUTDOWN_TIME}</stringProp>
+          <collectionProp name="957690257">
+            <stringProp name="50">2</stringProp>
+            <stringProp name="53430">600</stringProp>
+            <stringProp name="53">5</stringProp>
+            <stringProp name="49870">295</stringProp>
+            <stringProp name="48">0</stringProp>
           </collectionProp>
-          <collectionProp name="790702322">
-            <stringProp name="-1137966584">${START_THREADS}</stringProp>
-            <stringProp name="-808196001">${AFTER_PEEK_INITIAL_DELAY}</stringProp>
-            <stringProp name="1888665156">${AFTER_PEEK_STARTUP_TIME}</stringProp>
-            <stringProp name="1574968641">${AFTER_PEEK_HOLD_LOAD}</stringProp>
-            <stringProp name="-531217519">${AFTER_PEEK_SHUTDOWN_TIME}</stringProp>
+          <collectionProp name="-255856760">
+            <stringProp name="49">1</stringProp>
+            <stringProp name="56313">900</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="53430">600</stringProp>
+            <stringProp name="48">0</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -130,8 +130,8 @@
         <hashTree/>
       </hashTree>
       <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group">
-        <intProp name="ThreadGroup.num_threads">1</intProp>
-        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <intProp name="ThreadGroup.num_threads">20</intProp>
+        <intProp name="ThreadGroup.ramp_time">30</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -153,7 +153,7 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="TF#1 Registration" enabled="false"/>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS (users_data.csv)" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS (users_data.csv)">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
@@ -227,7 +227,7 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Users Registration" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Users Registration">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
@@ -320,7 +320,7 @@
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Add Data To STS (users_data.csv)" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Add Data To STS (users_data.csv)">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
@@ -389,7 +389,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="user_name &lt;&lt;&lt; REE" enabled="true">
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="user_name &lt;&lt;&lt; REE">
               <stringProp name="RegexExtractor.useHeaders">false</stringProp>
               <stringProp name="RegexExtractor.refname">users_count</stringProp>
               <stringProp name="RegexExtractor.regex">users_data_used.csv = (.*?)&lt;</stringProp>
@@ -402,63 +402,20 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="TC Users Delete">
-          <stringProp name="LoopController.loops">${users_count}</stringProp>
-        </LoopController>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="WC Delete Users">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${users_count}&quot; != &quot;0&quot;)}</stringProp>
+        </WhileController>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS">
-            <boolProp name="TransactionController.includeTimers">false</boolProp>
-          </TransactionController>
-          <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_sts/READ/_users_data_used.csv" enabled="true">
-              <stringProp name="HTTPSampler.domain">17.150.0.103</stringProp>
-              <stringProp name="HTTPSampler.port">9191</stringProp>
-              <stringProp name="HTTPSampler.path">/sts/READ</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="READ_MODE" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">FIRST</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">READ_MODE</stringProp>
-                  </elementProp>
-                  <elementProp name="KEEP" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">FALSE</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">KEEP</stringProp>
-                  </elementProp>
-                  <elementProp name="FILENAME" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                    <stringProp name="Argument.value">users_data_used.csv</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">FILENAME</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="user_name &lt;&lt;&lt; REE" enabled="true">
-                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                <stringProp name="RegexExtractor.refname">user_name</stringProp>
-                <stringProp name="RegexExtractor.regex">user_name=(.*?)&lt;</stringProp>
-                <stringProp name="RegexExtractor.template">$1$</stringProp>
-                <stringProp name="RegexExtractor.default">user_name_ERROR</stringProp>
-                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
-                <stringProp name="RegexExtractor.match_number">1</stringProp>
-                <stringProp name="Scope.variable"></stringProp>
-              </RegexExtractor>
-              <hashTree/>
-            </hashTree>
-          </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Users Delete user" enabled="true">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Check Status">
+            <collectionProp name="ModuleController.node_path">
+              <stringProp name="764597751">Test Plan</stringProp>
+              <stringProp name="184585656">Test Plan Site Users</stringProp>
+              <stringProp name="-30027501">TF#1 Delete Users</stringProp>
+              <stringProp name="1754592085">TC Status STS</stringProp>
+            </collectionProp>
+          </ModuleController>
+          <hashTree/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Users Delete user">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -617,6 +574,58 @@
             </HTTPSamplerProxy>
             <hashTree/>
           </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_sts/READ/_users_data_used.csv" enabled="true">
+              <stringProp name="HTTPSampler.domain">17.150.0.103</stringProp>
+              <stringProp name="HTTPSampler.port">9191</stringProp>
+              <stringProp name="HTTPSampler.path">/sts/READ</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="READ_MODE" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">FIRST</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">READ_MODE</stringProp>
+                  </elementProp>
+                  <elementProp name="KEEP" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">FALSE</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">KEEP</stringProp>
+                  </elementProp>
+                  <elementProp name="FILENAME" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                    <stringProp name="Argument.value">users_data_used.csv</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">FILENAME</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="user_name &lt;&lt;&lt; REE" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">user_name</stringProp>
+                <stringProp name="RegexExtractor.regex">user_name=(.*?)&lt;</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">user_name_ERROR</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+                <stringProp name="Scope.variable"></stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
         </hashTree>
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_________DEBUG_________" enabled="false"/>
@@ -674,7 +683,7 @@
         <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
       </BackendListener>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
