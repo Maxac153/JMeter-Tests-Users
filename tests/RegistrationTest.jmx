@@ -65,7 +65,7 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_________TESTS__________" enabled="false"/>
       <hashTree/>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="false">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="1719381960">
             <stringProp name="49">1</stringProp>
@@ -115,7 +115,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Debug Thread Group">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Debug Thread Group" enabled="false">
         <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -135,7 +135,7 @@
         </ModuleController>
         <hashTree/>
       </hashTree>
-      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group">
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
         <intProp name="ThreadGroup.num_threads">20</intProp>
         <intProp name="ThreadGroup.ramp_time">30</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -378,7 +378,7 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="TF#1 Delete Users" enabled="false"/>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Status STS">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Status STS" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
@@ -408,11 +408,11 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="WC Delete Users">
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="WC Delete Users" enabled="true">
           <stringProp name="WhileController.condition">${__javaScript(&quot;${users_count}&quot; != &quot;0&quot;)}</stringProp>
         </WhileController>
         <hashTree>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Check Status">
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Check Status" enabled="true">
             <collectionProp name="ModuleController.node_path">
               <stringProp name="764597751">Test Plan</stringProp>
               <stringProp name="184585656">Test Plan Site Users</stringProp>
@@ -421,7 +421,7 @@
             </collectionProp>
           </ModuleController>
           <hashTree/>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Users Delete user">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Users Delete user" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -465,7 +465,7 @@
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/main_page/">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/main_page/" enabled="true">
               <stringProp name="TestPlan.comments">Detected a redirect from the previous sample</stringProp>
               <stringProp name="HTTPSampler.port">0</stringProp>
               <stringProp name="HTTPSampler.path">/</stringProp>
@@ -478,7 +478,7 @@
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/user/admin/search/user/">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/user/admin/search/user/" enabled="true">
               <stringProp name="HTTPSampler.port">0</stringProp>
               <stringProp name="HTTPSampler.path">/user/admin/index</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -512,7 +512,7 @@
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="user_name &lt;&lt;&lt; REE">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="user_name &lt;&lt;&lt; REE" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">user_id</stringProp>
                 <stringProp name="RegexExtractor.regex">delete/(.*?)\&quot;&gt;</stringProp>
@@ -524,7 +524,7 @@
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/user/admin/delete/user/">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/user/admin/delete/user/" enabled="true">
               <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
               <stringProp name="HTTPSampler.port">0</stringProp>
               <stringProp name="HTTPSampler.path">/user/admin/index</stringProp>
@@ -566,7 +566,7 @@
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/user/logout/">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="&lt;_/user/logout/" enabled="true">
               <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
               <stringProp name="HTTPSampler.port">0</stringProp>
               <stringProp name="HTTPSampler.path">/user/logout.html</stringProp>
@@ -580,7 +580,7 @@
             </HTTPSamplerProxy>
             <hashTree/>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="TC Read Data From STS" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -636,7 +636,7 @@
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_________DEBUG_________" enabled="false"/>
       <hashTree/>
-      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener">
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="true">
         <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
           <collectionProp name="Arguments.arguments">
             <elementProp name="influxdbMetricsSender" elementType="Argument">
@@ -689,7 +689,7 @@
         <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
       </BackendListener>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
