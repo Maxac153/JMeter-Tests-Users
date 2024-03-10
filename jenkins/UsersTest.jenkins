@@ -62,25 +62,25 @@ pipeline {
         )
 
         text(name: 'AUTHORIZATION_PARAMETERS', description: 'Параметры теста (Authorization Test)', defaultValue: '' +
-                'THROUGHPUT_TIMER=1\n' +
+                'THROUGHPUT_TIMER=1.00\n' +
                 'START_THREADS=1\n' +
                 'PEAK_THREADS=2'
         )
 
         text(name: 'REGISTRATION_PARAMETERS', description: 'Параметры теста (Registration Test)', defaultValue: '' +
-                'THROUGHPUT_TIMER=1\n' +
+                'THROUGHPUT_TIMER=1.00\n' +
                 'START_THREADS=1\n' +
                 'PEAK_THREADS=2'
         )
 
         text(name: 'UPLOADING_AVATAR_PARAMETERS', description: 'Параметры теста (Uploading Avatar Test)', defaultValue: '' +
-                'THROUGHPUT_TIMER=1\n' +
+                'THROUGHPUT_TIMER=1.00\n' +
                 'START_THREADS=1\n' +
                 'PEAK_THREADS=2'
         )
 
         text(name: 'DELETE_USER_PARAMETERS', description: 'Параметры теста (Delete User Test)', defaultValue: '' +
-                'THROUGHPUT_TIMER=1\n' +
+                'THROUGHPUT_TIMER=1.00\n' +
                 'START_THREADS=1\n' +
                 'PEAK_THREADS=2'
         )
