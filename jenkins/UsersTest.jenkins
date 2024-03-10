@@ -43,7 +43,6 @@ pipeline {
         booleanParam(name: 'AUTHORIZATION_ENABLE_TEST', defaultValue: false, description: 'Authorization enable test')
         booleanParam(name: 'REGISTRATION_ENABLE_TEST', defaultValue: false, description: 'Registration enable test')
         booleanParam(name: 'UPLOADING_AVATAR_ENABLE_TEST', defaultValue: false, description: 'Uploading avatar enable test')
-        booleanParam(name: 'DELETE_USER_ENABLE_TEST', defaultValue: false, description: 'Delete user enable test')
 
         // Параметры запуска тестов
         text(name: 'COMMON_PARAMETERS', description: 'Общие параметры', defaultValue: '' +
@@ -74,12 +73,6 @@ pipeline {
         )
 
         text(name: 'UPLOADING_AVATAR_PARAMETERS', description: 'Параметры теста (Uploading Avatar Test)', defaultValue: '' +
-                'THROUGHPUT_TIMER=1.00\n' +
-                'START_THREADS=1\n' +
-                'PEAK_THREADS=2'
-        )
-
-        text(name: 'DELETE_USER_PARAMETERS', description: 'Параметры теста (Delete User Test)', defaultValue: '' +
                 'THROUGHPUT_TIMER=1.00\n' +
                 'START_THREADS=1\n' +
                 'PEAK_THREADS=2'
@@ -157,25 +150,6 @@ pipeline {
                                     env.LOG_PATH,
                                     env.COMMON_PARAMETERS,
                                     env.UPLOADING_AVATAR_PARAMETERS
-                            )
-                        }
-                    }
-                }
-
-                stage('START DELETE USER TEST') {
-                    when {
-                        expression { params.DELETE_USER_ENABLE_TEST == true }
-                    }
-                    steps {
-                        script {
-                            echo "=========== DeleteUserTest ==========="
-                            testsName.add("DeleteUserTest")
-                            start_jmeter_test(
-                                    "DeleteUserTest",
-                                    env.TEST_PATH,
-                                    env.LOG_PATH,
-                                    env.COMMON_PARAMETERS,
-                                    env.DELETE_USER_PARAMETERS
                             )
                         }
                     }
