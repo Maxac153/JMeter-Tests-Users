@@ -9,22 +9,30 @@
 
 - JMeter
 - Jenkins
-- Graphana
+- Grafana
 - Grafana
 - InfluxDB
+- Simple Table Server
+
+## Состав проекта
+
+- Папка (jenkins) с pipeline
+- Папка (tests) с нагрузочными тестами
+- Папка (test_data) с данными для теста
+- Скрипт (pre_generate_users) для генерации даных в STS
 
 ## Параметры запуска
 
---
+### Jenkins
 
-## Запуск тестов из консоли
+### Console
 
---
+## Данные из STS
 
-## Запуск тестов из Jenkins
-
---
+<p>Запуск Simple Table Server</p>
+<img src="./img/STS.png" width="900" height="380">
 
 ## Мониторинг
 
---
+<p>Дашборды в Grafana</p>
+<img src="./img/Grafana.png" width="900" height="380">

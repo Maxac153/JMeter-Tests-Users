@@ -40,6 +40,7 @@ pipeline {
     agent any
     parameters {
         // Какие тесты запускаем
+        booleanParam(name: 'PREPARATION_DATA_ENABLE', defaultValue: false, description: 'Preparation enable')
         booleanParam(name: 'AUTHORIZATION_ENABLE_TEST', defaultValue: false, description: 'Authorization enable test')
         booleanParam(name: 'REGISTRATION_ENABLE_TEST', defaultValue: false, description: 'Registration enable test')
         booleanParam(name: 'UPLOADING_AVATAR_ENABLE_TEST', defaultValue: false, description: 'Uploading avatar enable test')
@@ -87,6 +88,9 @@ pipeline {
 
     stages {
         stage('TEST PREPARATION DATA') {
+            when {
+                expression { params.PREPARATION_DATA_ENABLE == true }
+            }
             steps {
                 script {
                     sh """
