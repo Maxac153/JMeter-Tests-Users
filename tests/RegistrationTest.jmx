@@ -66,22 +66,22 @@
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-397800943">
-            <stringProp name="49">1</stringProp>
+          <collectionProp name="-1079749134">
+            <stringProp name="1603">25</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="1629">30</stringProp>
             <stringProp name="52686">570</stringProp>
             <stringProp name="53">5</stringProp>
           </collectionProp>
-          <collectionProp name="957690257">
-            <stringProp name="50">2</stringProp>
+          <collectionProp name="479574436">
+            <stringProp name="1691">50</stringProp>
             <stringProp name="53430">600</stringProp>
             <stringProp name="53">5</stringProp>
             <stringProp name="49870">295</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
-          <collectionProp name="-255856760">
-            <stringProp name="49">1</stringProp>
+          <collectionProp name="-937804951">
+            <stringProp name="1603">25</stringProp>
             <stringProp name="56313">900</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="53430">600</stringProp>
@@ -135,7 +135,7 @@
         </elementProp>
       </PostThreadGroup>
       <hashTree>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Delete Users">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Delete Users" enabled="true">
           <collectionProp name="ModuleController.node_path">
             <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="184585656">Test Plan Site Users</stringProp>
@@ -625,7 +625,7 @@
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_________DEBUG_________" enabled="false"/>
       <hashTree/>
-      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener">
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="true">
         <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
           <collectionProp name="Arguments.arguments">
             <elementProp name="influxdbMetricsSender" elementType="Argument">
@@ -752,7 +752,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="HOST" elementType="Argument">
             <stringProp name="Argument.name">HOST</stringProp>
@@ -776,6 +776,15 @@
           </elementProp>
         </collectionProp>
       </Arguments>
+      <hashTree/>
+      <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer">
+        <intProp name="calcMode">1</intProp>
+        <doubleProp>
+          <name>throughput</name>
+          <value>2.4</value>
+          <savedValue>0.0</savedValue>
+        </doubleProp>
+      </ConstantThroughputTimer>
       <hashTree/>
     </hashTree>
   </hashTree>
