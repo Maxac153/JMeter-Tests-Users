@@ -1,5 +1,3 @@
-#!groovy
-
 class UsersCommon {
     // Создание map с параметрами для запуска
     static def create_map_param(multiLineString) {
@@ -34,8 +32,8 @@ class UsersCommon {
     }
 }
 
-Object getProperty(String name) {
-    return this.getClass().getClassLoader().loadClass(name).newInstance()
+Object getProperty(String name){
+    return this.getClass().getClassLoader().loadClass(name).newInstance();
 }
 
 return this
