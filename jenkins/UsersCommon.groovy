@@ -32,6 +32,10 @@ class UsersCommon {
     }
 }
 
+class A {
+    static def greet(name) { return "greet from A: $name!" }
+}
+
 Object getProperty(String name){
     return this.getClass().getClassLoader().loadClass(name).newInstance();
 }

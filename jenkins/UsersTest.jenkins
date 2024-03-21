@@ -79,6 +79,9 @@ pipeline {
                         script {
                             // Загрузка метода из common класса
                             def classLoad = load "./jenkins/UsersCommon.groovy"
+                            def a = classLoad.A
+                            echo a.greet("Hello world!!!!")
+
                             def usersCommon = classLoad.UsersCommon
 
                             echo "=========== AuthorizationTest ==========="
