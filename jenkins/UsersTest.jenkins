@@ -78,7 +78,7 @@ pipeline {
                     steps {
                         script {
                             // Загрузка метода из common класса
-                            def classLoad = load "UsersCommon.groovy"
+                            def classLoad = load "jenkins/UsersCommon.groovy"
                             def usersCommon = classLoad.UsersCommon
 
                             echo "=========== AuthorizationTest ==========="
@@ -101,7 +101,7 @@ pipeline {
                     steps {
                         script {
                             // Загрузка метода из common класса
-                            def classLoad = load "UsersCommon.groovy"
+                            def classLoad = load "jenkins/UsersCommon.groovy"
                             def usersCommon = classLoad.UsersCommon
 
                             echo "=========== RegistrationTest ==========="
@@ -124,7 +124,7 @@ pipeline {
                     steps {
                         script {
                             // Загрузка метода из common класса
-                            def classLoad = load "UsersCommon.groovy"
+                            def classLoad = load "jenkins/UsersCommon.groovy"
                             def usersCommon = classLoad.UsersCommon
 
                             echo "=========== UploadingAvatarTest ==========="
