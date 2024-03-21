@@ -4,6 +4,12 @@
 def currentDate = new Date().format('yyyy-MM-dd_HH-mm-ss')
 def testsName = []
 
+node{
+    def cl = load './jenkins/UsersCommon.groovy'
+    def a = cl.A
+    echo a.greet("world A")
+}
+
 pipeline {
     agent any
     parameters {
