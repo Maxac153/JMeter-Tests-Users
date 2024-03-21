@@ -1,3 +1,5 @@
+#!groovy
+
 class UsersCommon {
     // Создание map с параметрами для запуска
     static def create_map_param(multiLineString) {
