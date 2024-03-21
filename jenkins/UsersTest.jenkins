@@ -4,10 +4,6 @@
 def currentDate = new Date().format('yyyy-MM-dd_HH-mm-ss')
 def testsName = []
 
-// Загрузка метода из common класса
-def classLoad = load "UsersCommon.groovy"
-def usersCommon = classLoad.UsersCommon
-
 pipeline {
     agent any
     parameters {
@@ -81,6 +77,10 @@ pipeline {
                     }
                     steps {
                         script {
+                            // Загрузка метода из common класса
+                            def classLoad = load "UsersCommon.groovy"
+                            def usersCommon = classLoad.UsersCommon
+
                             echo "=========== AuthorizationTest ==========="
                             testsName.add("AuthorizationTest")
                             usersCommon.start_jmeter_test(
@@ -100,6 +100,10 @@ pipeline {
                     }
                     steps {
                         script {
+                            // Загрузка метода из common класса
+                            def classLoad = load "UsersCommon.groovy"
+                            def usersCommon = classLoad.UsersCommon
+
                             echo "=========== RegistrationTest ==========="
                             testsName.add("RegistrationTest")
                             usersCommon.start_jmeter_test(
@@ -119,6 +123,10 @@ pipeline {
                     }
                     steps {
                         script {
+                            // Загрузка метода из common класса
+                            def classLoad = load "UsersCommon.groovy"
+                            def usersCommon = classLoad.UsersCommon
+
                             echo "=========== UploadingAvatarTest ==========="
                             testsName.add("UploadingAvatarTest")
                             usersCommon.start_jmeter_test(
