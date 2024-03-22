@@ -80,7 +80,7 @@ pipeline {
                         script {
                             echo "=========== AuthorizationTest ==========="
                             testsName.add("AuthorizationTest")
-                            UsersCommon.start_jmeter_test(
+                            UsersCommon(
                                     "AuthorizationTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
@@ -99,7 +99,7 @@ pipeline {
                         script {
                             echo "=========== RegistrationTest ==========="
                             testsName.add("RegistrationTest")
-                            UsersCommon.start_jmeter_test(
+                            UsersCommon(
                                     "RegistrationTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
@@ -118,7 +118,7 @@ pipeline {
                         script {
                             echo "=========== UploadingAvatarTest ==========="
                             testsName.add("UploadingAvatarTest")
-                            UsersCommon.start_jmeter_test(
+                            UsersCommon(
                                     "UploadingAvatarTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
