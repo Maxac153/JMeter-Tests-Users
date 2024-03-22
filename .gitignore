@@ -4,4 +4,4 @@
 /log/
 /apache-jmeter/backups/AuthorizationTest-000001.jmx
 /jmeter.log
-/test_data/users_data.csv
+/src/resources/test_data/users_data.csv

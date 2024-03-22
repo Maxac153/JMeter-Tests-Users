@@ -1,14 +1,9 @@
 #!groovy
+@Library('utils') _
 
 // Дата запуска тестов
 def currentDate = new Date().format('yyyy-MM-dd_HH-mm-ss')
 def testsName = []
-
-node{
-    def cl = load './jenkins/UsersCommon.groovy'
-    def a = cl.A
-    echo a.greet("world A")
-}
 
 pipeline {
     agent any
@@ -83,16 +78,9 @@ pipeline {
                     }
                     steps {
                         script {
-                            // Загрузка метода из common класса
-                            def classLoad = load "./jenkins/UsersCommon.groovy"
-                            def a = classLoad.A
-                            echo a.greet("Hello world!!!!")
-
-                            def usersCommon = classLoad.UsersCommon
-
                             echo "=========== AuthorizationTest ==========="
                             testsName.add("AuthorizationTest")
-                            usersCommon.start_jmeter_test(
+                            UsersCommon.start_jmeter_test(
                                     "AuthorizationTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
@@ -109,13 +97,9 @@ pipeline {
                     }
                     steps {
                         script {
-                            // Загрузка метода из common класса
-                            def classLoad = load "./jenkins/UsersCommon.groovy"
-                            def usersCommon = classLoad.UsersCommon
-
                             echo "=========== RegistrationTest ==========="
                             testsName.add("RegistrationTest")
-                            usersCommon.start_jmeter_test(
+                            UsersCommon.start_jmeter_test(
                                     "RegistrationTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
@@ -132,13 +116,9 @@ pipeline {
                     }
                     steps {
                         script {
-                            // Загрузка метода из common класса
-                            def classLoad = load "./jenkins/UsersCommon.groovy"
-                            def usersCommon = classLoad.UsersCommon
-
                             echo "=========== UploadingAvatarTest ==========="
                             testsName.add("UploadingAvatarTest")
-                            usersCommon.start_jmeter_test(
+                            UsersCommon.start_jmeter_test(
                                     "UploadingAvatarTest",
                                     env.TEST_PATH,
                                     env.LOG_PATH,
