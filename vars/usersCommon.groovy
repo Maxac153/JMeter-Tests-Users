@@ -29,5 +29,3 @@ def start_jmeter_test(testName, testPath, logPath, commonTestParam, testParam) {
 
     sh "./apache-jmeter/bin/jmeter.sh -n -t ${testPath}/${testName}.jmx ${commonVariablesString} ${variablesString} -l ${logPath}/test_results_${testName}.jtl"
 }
-
-return this
