@@ -51,7 +51,7 @@ pipeline {
 
     environment {
         // Пути к тестам и логам
-        TEST_PATH = './tests'
+        TEST_PATH = './src/tests'
         LOG_PATH = "./logs/${currentDate}"
     }
 
