@@ -1,5 +1,5 @@
 #!groovy
-@Library('utils') _
+@Library('shared-library') _
 
 // Дата запуска тестов
 def currentDate = new Date().format('yyyy-MM-dd_HH-mm-ss')
