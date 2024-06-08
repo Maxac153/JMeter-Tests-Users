@@ -64,38 +64,38 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="_________TESTS__________" enabled="false"/>
       <hashTree/>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group">
-        <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-1079749134">
-            <stringProp name="1603">25</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="1629">30</stringProp>
-            <stringProp name="52686">570</stringProp>
-            <stringProp name="53">5</stringProp>
+      <com.blazemeter.jmeter.threads.arrivals.FreeFormArrivalsThreadGroup guiclass="com.blazemeter.jmeter.threads.arrivals.FreeFormArrivalsThreadGroupGui" testclass="com.blazemeter.jmeter.threads.arrivals.FreeFormArrivalsThreadGroup" testname="bzm - Free-Form Arrivals Thread Group">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <collectionProp name="Schedule">
+          <collectionProp name="140475104">
+            <stringProp name="49">1</stringProp>
+            <stringProp name="49">1</stringProp>
+            <stringProp name="1722">60</stringProp>
           </collectionProp>
-          <collectionProp name="479574436">
-            <stringProp name="1691">50</stringProp>
-            <stringProp name="53430">600</stringProp>
-            <stringProp name="53">5</stringProp>
-            <stringProp name="49870">295</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="140500369">
+            <stringProp name="49">1</stringProp>
+            <stringProp name="50">2</stringProp>
+            <stringProp name="1722">60</stringProp>
           </collectionProp>
-          <collectionProp name="-937804951">
-            <stringProp name="1603">25</stringProp>
-            <stringProp name="56313">900</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="53430">600</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="1925865314">
+            <stringProp name="50">2</stringProp>
+            <stringProp name="50">2</stringProp>
+            <stringProp name="48625">100</stringProp>
+          </collectionProp>
+          <collectionProp name="140482122">
+            <stringProp name="49">1</stringProp>
+            <stringProp name="49">1</stringProp>
+            <stringProp name="1784">80</stringProp>
           </collectionProp>
         </collectionProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
-          <intProp name="LoopController.loops">-1</intProp>
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-        </elementProp>
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-      </kg.apc.jmeter.threads.UltimateThreadGroup>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="ConcurrencyLimit"></stringProp>
+        <stringProp name="Unit">S</stringProp>
+      </com.blazemeter.jmeter.threads.arrivals.FreeFormArrivalsThreadGroup>
       <hashTree>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Registration" enabled="true">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC Registration">
           <collectionProp name="ModuleController.node_path">
             <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="184585656">Test Plan Site Users</stringProp>
@@ -777,7 +777,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer">
+      <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
         <intProp name="calcMode">1</intProp>
         <doubleProp>
           <name>throughput</name>
